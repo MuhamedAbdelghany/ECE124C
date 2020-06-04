@@ -1,0 +1,69 @@
+<!doctype html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Sports</title>
+  <link href="mondy1.css" rel="stylesheet">
+  <nav class="navi">
+      <ul>
+        <li><a href="index.html">Main</a></li>
+        <li><a href="sports1.html"> Ballon d'Or  </a></li>
+        <li><a href="sports2.html"> Tennis ATP Rankings </a></li>
+        <li><a href="sports3.html"> Top 10 Basketball Players</a></li>
+        <li><a href="sports4.html"> AIBA World Boxing </a></li>
+    </ul>
+</nav>
+<script type="text/javascript"> 
+    function valid_form() { 
+        var ret = "TRUE"; 
+        var name1 =  document.getElementById("user").value , name2 = document.getElementById("lname").value , add = document.getElementById("ad").value
+            num =  document.getElementById("nu").value , mail =  document.getElementById("em").value; 
+        var arr = document.getElementById("p").value; 
+      
+        if (name1.length < 1  ) 
+        { alert("The FIRST name must be more than 1 character"); return false;}
+        if (name2.length < 1  ) 
+        { alert("The Last name must be more than 1 character"); return false;}
+        if (arr.match(/[0-9]/g) && arr.length === 8  &&  arr[0].match(/[A-Z]/g) && arr.match(/[^a-zA-Z\d]/g) && arr.indexOf(' ') < 0) 
+            ret = "TRUE";
+        else 
+            ret = "FALSE"; 
+        if(ret == "FALSE"){ alert("The passward must start with upper character and contain at least 1 digit and contain a special character"); return false;}
+        
+        if(add.length > 1)  ret = "TRUE";
+        else
+        ret = "FALSE";
+        if(ret == "FALSE"){  alert("Please,fail Address section"); return false;}
+        if(num.length === 11 &&num[0].match("0") )  ret = "TRUE";
+        else
+        ret = "FALSE";
+        if(ret == "FALSE")  { alert("Please,enter correct Number "); return false;}
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+        ret = "TRUE";
+        else
+        ret = "FALSE";
+        if(ret == "FALSE") {alert("You have entered an invalid email address!"); return false;}
+
+}
+</script>  
+</head>
+<body>
+    <form onsubmit="return valid_form()" action="welcome.html"  >
+        <h1><i> Login-Form</i></h1>
+        <label for="user"> first-name </lable><input type="text" class="in" name="user" id="user" >
+       <label for="lname">  last-name </label><input type="text" class="in" name="lname" id="lname">
+        <label for="p"> password</label><input type="password" class="in" id="p" >
+        <lable for="em" > E-mail </lable><input type="email" class="in" name="em" id="em" >
+        <lable for="ad"> Adress </lable><input type="text"  class="in" name="ad" id="ad" >
+        Number<input type="number"  class="in" id="nu">
+        <br><select aria-placeholder="Your Gender" class="in">
+            <option>male</option>
+            <option>female</option>
+            
+        </select>
+        <br> <input type="submit" class="in" >
+
+    </form>
+</body>
+</html>
